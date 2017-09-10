@@ -7,8 +7,6 @@ import { styles } from './styles.scss';
 class Footer extends Component {
   constructor(props) {
     super(props);
-    console.log('hi')
-    debugger;
   }
 
   render() {
