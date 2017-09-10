@@ -8,7 +8,7 @@
     "build:production": "npm run clean && npm run build",
     "lint": "eslint src",
     "start": "cross-env NODE_ENV=development node bin/server.js",
-    "test": "bin/test.sh"
+    "test": "jest --verbose"
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,7 @@
     "html-webpack-plugin": "^2.15.0",
     "ignore-styles": "^2.0.0",
     "imports-loader": "^0.6.5",
+    "jest": "^21.0.2",
     "jsdom": "^9.2.1",
     "keymirror": "^0.1.1",
     "mocha": "^2.5.3",
