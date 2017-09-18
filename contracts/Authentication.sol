@@ -12,29 +12,21 @@ contract Authentication is Killable {
   uint private id; // Stores user id temporarily
 
   function login() constant returns (bytes32) {
-    // Check if user exists.
+    // Require user exists.
     // If yes, return user.
-    // If no, throw.
 
-    if (users[msg.sender].name == 0x0)
-    {
-        throw;
-    }
+    require(users[msg.sender].name != 0x0);
 
     return (users[msg.sender].name);
   }
 
   function signup(bytes32 name) payable returns (bytes32) {
+    // Require name to have a value.
     // Check if user exists.
     // If yes, return user name.
-    // If no, check if name was sent.
-    // If yes, create and return user.
-    // If no, throw.
+    // If no, create and return user.
 
-    if (name == 0x0)
-    {
-        throw;
-    }
+    require(name != 0x0);
 
     if (users[msg.sender].name == 0x0)
     {
@@ -49,18 +41,11 @@ contract Authentication is Killable {
   function update(bytes32 name) payable returns (bytes32) {
     // Update user name.
 
-    if (name == 0x0)
-    {
-        throw;
-    }
+    require(name != 0x0);
+    require(users[msg.sender].name != 0x0);
 
-    if (users[msg.sender].name != 0x0)
-    {
-        users[msg.sender].name = name;
+    users[msg.sender].name = name;
 
-        return (users[msg.sender].name);
-    }
-
-    throw;
+    return (users[msg.sender].name);
   }
 }
